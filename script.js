@@ -4,6 +4,9 @@ const balls = document.querySelectorAll('.ball');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
+//* Gerador de RegEx utilizado: https://regex-generator.olafneumann.org/
+//* Propriedade .exec do RegEx https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
+const regex = /\([^)]*\)/i;
 
 // Requisito 4 - Adicione cores nas bolas, elas devem ser geradas dinâmicamente
 function generateRGB() {
@@ -17,11 +20,8 @@ function randomColors() {
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].style.backgroundColor = generateRGB();
   }
-  let randomBall = Math.floor(Math.random() * 7);
-  //* Gerador de RegEx utilizado: https://regex-generator.olafneumann.org/
-  //* Propriedade .exec do RegEx https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
-  let regex = /\([^)]*\)/i;
-  rgbColor.innerHTML = regex.exec(balls[randomBall].style.backgroundColor);
+  let randomBall = Math.floor(Math.random() * 6);
+  rgbColor.innerText = regex.exec(balls[randomBall].style.backgroundColor);
 }
 randomColors();
 
@@ -50,9 +50,8 @@ function checkAnswer(event) {
 colors.addEventListener('click', checkAnswer);
 
 // Requisito 6 - Crie um botão para iniciar/reiniciar o jogo
-function resetGame() {
+
+resetButton.addEventListener('click', function () {
   randomColors();
   answer.innerText = 'Escolha uma cor';
-}
-
-resetButton.addEventListener('click', resetGame);
+});
