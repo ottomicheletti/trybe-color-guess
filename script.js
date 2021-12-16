@@ -31,7 +31,6 @@ var contador = 0;
 function checkAnswer(event) {
   let question = rgbColor.innerHTML;
   let clickedBall = event.target.style.backgroundColor;
-  let regex = /\([^)]*\)/i;
   let result = regex.exec(clickedBall)[0];
 
   switch (true) {
@@ -50,7 +49,6 @@ function checkAnswer(event) {
       break;
   }
 }
-
 colors.addEventListener('click', checkAnswer);
 
 // Requisito 6 - Crie um botão para iniciar/reiniciar o jogo.
