@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+h1,
+p {
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+#colors {
+  margin: 0.5em auto;
+  /* border: 2px black solid; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.ball {
+  width: 4em;
+  height: 4em;
+  border: 1px black solid;
+  border-radius: 100%;
+  margin: 0 0.5em;
+}
