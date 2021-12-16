@@ -3,9 +3,28 @@
   padding: 0;
 }
 
+body {
+  background-color: coral;
+}
+
 main {
+  background-color: white;
+  box-shadow: 0px 0px 10px black;
+  margin: 1em auto;
+  padding: 1em;
+  border-radius: 20px;
   width: fit-content;
-  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: 'Fuzzy Bubbles', cursive;
+}
+
+p,
+span {
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-size: larger;
 }
 
 h1,
@@ -13,31 +32,50 @@ h2,
 p {
   margin: 20px auto;
   text-align: center;
-  /* border: 2px red solid; */
+  user-select: none;
+}
+
+#placar {
+  text-align: center;
+}
+
+span {
+  user-select: none;
 }
 
 #colors {
+  border: 2px black solid;
+  border-radius: 10px;
   margin: 0.5em auto;
-  /* border: 2px black solid; */
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 5em;
+  width: 30em;
 }
 
 .ball {
-  width: 4em;
-  height: 4em;
+  width: 62px;
+  height: 62px;
   border: 1px black solid;
   border-radius: 100%;
   margin: 0 0.5em;
   cursor: pointer;
 }
 
+.ball:hover {
+  box-shadow: 0px 0px 5px black;
+}
+
 #buttons {
+  margin: 0 auto;
+  width: 50%;
   display: flex;
   justify-content: space-around;
 }
 
-#reset-game {
+#reset-game,
+#reset-score {
   cursor: pointer;
   padding: 0.5em;
 }

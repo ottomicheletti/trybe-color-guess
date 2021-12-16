@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Fuzzy+Bubbles&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Color Guess</title>
   </head>
@@ -13,6 +19,10 @@
       <h1 id="title">Adivinhe a cor!</h1>
       <!-- Requisito 2 - Adicione um texto com o código RGB a ser adivinhado -->
       <p id="rgb-color"></p>
+      <div id="placar">
+        <span>Placar:</span>
+        <span id="score">0</span>
+      </div>
       <!-- Requisito 3 - Adicione à página opções de cores para serem adivinhadas -->
       <div id="colors">
         <div class="ball"></div>
@@ -24,7 +34,8 @@
       </div>
       <h2 id="answer">Escolha uma cor</h2>
       <div id="buttons">
-        <button id="reset-game">Resetar o jogo/cores</button>
+        <button id="reset-score">Resetar o placar</button>
+        <button id="reset-game">Resetar as cores</button>
       </div>
     </main>
   </body>

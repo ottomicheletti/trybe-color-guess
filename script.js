@@ -1,14 +1,15 @@
-// Elementos
+// Elementos - por ordem de aparição na página.
+const rgbColor = document.getElementById('rgb-color');
+const score = document.getElementById('score');
 const colors = document.getElementById('colors');
 const balls = document.querySelectorAll('.ball');
-const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
-const resetButton = document.getElementById('reset-game');
-//* Gerador de RegEx utilizado: https://regex-generator.olafneumann.org/
-//* Propriedade .exec do RegEx https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
+const resetColors = document.getElementById('reset-game');
+const resetScore = document.getElementById('reset-score');
+//* Gerador de RegEx utilizado: https://regex-generator.olafneumann.org/ e propriedade .exec do RegEx https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
 const regex = /\([^)]*\)/i;
 
-// Requisito 4 - Adicione cores nas bolas, elas devem ser geradas dinâmicamente
+// Requisito 4 - Adicione cores nas bolas, elas devem ser geradas dinamicamente.
 function generateRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -25,7 +26,8 @@ function randomColors() {
 }
 randomColors();
 
-// Requisito 5 - Clicar em um circulo colorido, deve ser mostrado um texto indicando se está correto
+// Requisito 5 e 7 - Clicar em um circulo colorido, deve ser mostrado um texto indicando se está correto. Crie um placar que incremente 3 pontos para cada acerto no jogo.
+var contador = 0;
 function checkAnswer(event) {
   let question = rgbColor.innerHTML;
   let clickedBall = event.target.style.backgroundColor;
@@ -35,23 +37,28 @@ function checkAnswer(event) {
   switch (true) {
     case question === result:
       answer.innerText = 'Acertou!';
+      contador += 3;
+      score.innerText = contador;
+      randomColors();
       break;
     case question !== result:
       answer.innerText = 'Errou! Tente novamente!';
     default:
       break;
   }
-
-  // console.log(result);
-  // console.log(rgbColor.innerHTML);
-  // console.log(answer.innerText);
 }
 
 colors.addEventListener('click', checkAnswer);
 
-// Requisito 6 - Crie um botão para iniciar/reiniciar o jogo
-
-resetButton.addEventListener('click', function () {
+// Requisito 6 - Crie um botão para iniciar/reiniciar o jogo.
+resetColors.addEventListener('click', function () {
   randomColors();
+  answer.innerText = 'Escolha uma cor';
+});
+
+// Perfumaria
+resetScore.addEventListener('click', function () {
+  randomColors();
+  score.innerText = 0;
   answer.innerText = 'Escolha uma cor';
 });
