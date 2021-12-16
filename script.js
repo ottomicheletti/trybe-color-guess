@@ -39,7 +39,10 @@ function checkAnswer(event) {
       answer.innerText = 'Acertou!';
       contador += 3;
       score.innerText = contador;
-      randomColors();
+      setTimeout(function () {
+        randomColors();
+        answer.innerText = 'Escolha uma cor';
+      }, 800);
       break;
     case question !== result:
       answer.innerText = 'Errou! Tente novamente!';
