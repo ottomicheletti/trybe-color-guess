@@ -1,7 +1,9 @@
 // Elementos
+const colors = document.getElementById('colors');
 const balls = document.querySelectorAll('.ball');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
+const resetButton = document.getElementById('reset-game');
 
 // Requisito 4 - Adicione cores nas bolas, elas devem ser geradas dinâmicamente
 function generateRGB() {
@@ -44,5 +46,13 @@ function checkAnswer(event) {
   // console.log(rgbColor.innerHTML);
   // console.log(answer.innerText);
 }
-const colors = document.getElementById('colors');
+
 colors.addEventListener('click', checkAnswer);
+
+// Requisito 6 - Crie um botão para iniciar/reiniciar o jogo
+function resetGame() {
+  randomColors();
+  answer.innerText = 'Escolha uma cor';
+}
+
+resetButton.addEventListener('click', resetGame);
